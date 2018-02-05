@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import * as showdown from 'showdown';
 
 @Component({
@@ -14,7 +14,7 @@ export class AppComponent implements AfterViewInit {
 
   private converter;
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
     this.converter = new showdown.Converter();
   }
 
@@ -28,10 +28,13 @@ export class AppComponent implements AfterViewInit {
   }
 
   render() {
+    const renderStartTime = Date.now();
     this.outputText = this.converter.makeHtml(this.inputText);
+    console.log('Render duration: ' + (Date.now() - renderStartTime));
 
     localStorage.setItem('last_input', this.inputText);
 
     this.wordCount = this.inputText.trim().split(/\s+/).length;
+    this.cdRef.detectChanges();
   }
 }
