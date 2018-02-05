@@ -18,6 +18,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
+        "bootstrap.scss",
         "styles.css"
       ],
       "scripts": [],
@@ -49,7 +50,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "prefixInterfaces": false,
     "inline": {
       "style": false,
