@@ -8,6 +8,9 @@ import * as showdown from 'showdown';
 })
 export class AppComponent implements AfterViewInit {
 
+  @ViewChild('inputArea')
+  public inputArea: ElementRef;
+
   public inputText: string;
   public outputText: string;
   public wordCount: number;
@@ -30,6 +33,11 @@ export class AppComponent implements AfterViewInit {
   render() {
     const renderStartTime = Date.now();
     this.outputText = this.converter.makeHtml(this.inputText);
+
+    setTimeout(() => {
+      this.inputArea.nativeElement.style.height = this.inputArea.nativeElement.scrollHeight + 'px';
+    }, 10);
+
     console.log('Render duration: ' + (Date.now() - renderStartTime));
 
     localStorage.setItem('last_input', this.inputText);

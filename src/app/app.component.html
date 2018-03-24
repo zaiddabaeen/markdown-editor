@@ -1,25 +1,20 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col text-center">
-      <h1>A Pretty Markdown Editor</h1>
+      <h1>A Simple Markdown Editor</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center word-count">
+      Word Count: {{wordCount}}
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <textarea [(ngModel)]="inputText" (ngModelChange)="render()" class="max-size"></textarea>
+      <textarea #inputArea [(ngModel)]="inputText" (ngModelChange)="render()" class="max-size"></textarea>
     </div>
     <div class="col">
       <div [innerHtml]="outputText" class="max-size"></div>
-    </div>
-  </div>
-  <div class="row" style="display: none">
-    <div class="col text-center">
-      <button class="button" (click)="render()">Submit</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col text-center">
-      Word Count: {{wordCount}}
     </div>
   </div>
 </div>

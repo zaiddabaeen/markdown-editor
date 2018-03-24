@@ -4,13 +4,19 @@
 
 .max-size {
   width: 100%;
-  height: 500px;
+  height: 100%;
   background-color: #EEE;
   border: 1px solid #AAA;
   padding: 20px;
+  overflow-y: hidden;
+  resize: none;
 }
 
 .button {
   background-color: deepskyblue;
   color: black;
+}
+
+.word-count {
+  padding-bottom: 10px;
 }
